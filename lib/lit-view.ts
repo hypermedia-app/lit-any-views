@@ -1,7 +1,7 @@
 import { LitElement, property, TemplateResult } from 'lit-element'
 import { html } from 'lit-html'
 import render from './render'
-import ViewTemplates from './views'
+import ViewTemplates from './index'
 
 export default class LitView extends LitElement {
     @property({ type: Object, attribute: false })

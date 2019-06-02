@@ -17,7 +17,9 @@
     "comma-dangle": [
       "error",
       "always-multiline"
-    ]
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/named": "off"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -30,14 +32,5 @@
   ],
   "env": {
     "browser": true
-  },
-  "overrides":[
-    {
-      "files": "*.test.ts",
-      "rules": {
-        "import/no-extraneous-dependencies": "off",
-        "no-unused-expressions": "off"
-      }
-    }
-  ]
+  }
 }

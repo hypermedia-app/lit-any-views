@@ -1,8 +1,8 @@
 import { html, TemplateResult } from 'lit-html'
-import TemplateRegistry from '../template-registry'
+import TemplateRegistry from '../TemplateRegistry'
 
 interface Params { [key: string]: unknown }
-type renderFunc = (value: unknown, scope?: string) => TemplateResult
+type renderFunc = (value: unknown, scope: string) => TemplateResult
 
 function recurseTemplates(
     registry: TemplateRegistry,
@@ -25,7 +25,7 @@ function recurseTemplates(
         }
         const template = registry.getTemplate({
             value,
-            scope,
+            scope: scope || '',
         })
 
         if (template) {
@@ -33,7 +33,7 @@ function recurseTemplates(
 
             templateResult = html`${template.render(value, nextLevel, scope, params || {})}`
         } else if (ignoreMissing) {
-            templateResult = ''
+            templateResult = '' as unknown as TemplateResult
         } else {
             templateResult = html`Template not found`
             console.warn(`Template not found in registry '${registry.name}' for value`, value)
@@ -50,5 +50,5 @@ export default function view(
 ) {
     const templateFunc = recurseTemplates(registry, ignoreMissing, null)
 
-    return templateFunc(what.value, what.scope)
+    return templateFunc(what.value, what.scope || '')
 }
