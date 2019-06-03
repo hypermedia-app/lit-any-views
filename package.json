@@ -12,6 +12,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "prepare": "tsc",
     "pretest": "npm run lint",
     "lint": "eslint --ext .ts,.js . --quiet",
     "test": "karma start --coverage",
