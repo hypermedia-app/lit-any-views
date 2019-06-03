@@ -5,7 +5,10 @@
   "files": [
     "*.d.ts",
     "*.js.map",
-    "*.js"
+    "lib/**/*.js",
+    "lib/**/*.js",
+    "index.js",
+    "lit-view.js"
   ],
   "directories": {
     "test": "test"
