@@ -13,6 +13,11 @@
   "directories": {
     "test": "test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hypermedia-app/lit-any-views"
+  },
+  "homepage": "https://lit-any.hypermedia.app/",
   "license": "MIT",
   "scripts": {
     "prepare": "tsc",
