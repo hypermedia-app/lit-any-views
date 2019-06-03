@@ -1,26 +1,26 @@
-# lit-any [![codecov](https://codecov.io/gh/wikibus/lit-any/branch/master/graph/badge.svg)](https://codecov.io/gh/wikibus/lit-any)
+# lit-any [![codecov](https://codecov.io/gh/hypermedia-app/lit-any-views/branch/master/graph/badge.svg)](https://codecov.io/gh/wikibus/lit-any)
 
-Building late-bound User Interface with `lit-html` without actually creating (too many) custom elements
+Building late-bound User Interface with `lit-html` without actually creating or using (too many) custom elements
 
 ## Quick guide
 
 ### 1. Install
 
 ``` bash
-yarn add @lit-any/lit-any
+yarn add @lit-any/views
 ```
 
 ### 2. Set up how to render your content
 
 You want to display an object which represents a person but the avatar comes in two flavors. Of course,
-it's possible to keep abusing `if` statements or drop in a `<template is="dom-if">` (old syntax, I know).
+it's possible to keep abusing `if` statements or drop in Polymer's `<dom-if>` templates.
 
 With `lit-any` you can deconstruct your HTML by defining partial templates which will be rendered when
 they are really needed.
 
 ```javascript
-import ViewTemplates from '@lit-any/lit-any/views';
-import { html } from 'lit-html';
+import { ViewTemplates } from '@lit-any/views'
+import { html } from 'lit-html'
 
 ViewTemplates.default.when
     .value(isPerson)
@@ -30,14 +30,14 @@ ViewTemplates.default.when
                 ${renderFunc(person.avatar, 'person-element-avatar')}
             </span>
         </person-element>
-    `);
+    `)
 
 ViewTemplates.default.when
     .scope('person-element-avatar')
     .value(v => v.url)
     .renders((_, image) => html`
         <img src="${image.url}" alt="avatar" />
-    `);
+    `)
 
 ViewTemplates.default.when
     .scope('person-element-avatar')
@@ -46,10 +46,10 @@ ViewTemplates.default.when
         <a href="${image.url}">
             <img src="${image.large}" alt="avatar" />
         </a>
-    `);
+    `)
 
 function isPerson(value) {
-    return value.type === 'Person';
+    return value.type === 'Person'
 }
 ```
 
@@ -65,7 +65,8 @@ To do actual rendering you don't really need a dedicated custom element. Any con
 ```
 
 ```javascript
-import render from '@lit-any/lit-any/render';
+import { ViewTemplates } from '@lit-any/views'
+import render from '@lit-any/views/lib/render'
 
 const person = {
     type: 'Person',
@@ -77,7 +78,7 @@ const person = {
 
 const personContainer = document.querySelector('#personContainer');
 
-render({ value: person }, personContainer);
+render(ViewTemplates, { value: person }, personContainer);
 ```
 
 ### 3b. Render element
