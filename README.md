@@ -1,4 +1,4 @@
-# lit-any [![codecov](https://codecov.io/gh/hypermedia-app/lit-any-views/branch/master/graph/badge.svg)](https://codecov.io/gh/wikibus/lit-any)
+# `@lit-any/views` [![codecov](https://codecov.io/gh/hypermedia-app/lit-any-views/branch/master/graph/badge.svg)](https://codecov.io/gh/wikibus/lit-any)
 
 Building late-bound User Interface with `lit-html` without actually creating or using (too many) custom elements
 
