@@ -1,6 +1,6 @@
 {
   "name": "@lit-any/views",
-  "version": "0.9.0",
+  "version": "0.9.0-a1",
   "main": "index.js",
   "files": [
     "*.d.ts",
@@ -33,7 +33,7 @@
     "posttest": "cat ./coverage/coverage-final.json | remap-istanbul -o ./coverage/lcov.info -t lcovonly"
   },
   "dependencies": {
-    "@lit-any/core": "git+https://github.com/hypermedia-app/lit-any-core.git"
+    "@lit-any/core": "^0.9.0-a1"
   },
   "peerDependencies": {
     "lit-html": ">= 1",
