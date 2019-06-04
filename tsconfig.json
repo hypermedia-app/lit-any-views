@@ -11,6 +11,11 @@
     "declaration": true,
     "sourceMap": true,
     "noImplicitAny": true,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+    "outDir": "."
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": []
 }

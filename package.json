@@ -5,8 +5,7 @@
   "files": [
     "*.d.ts",
     "*.js.map",
-    "lib/**/*.js",
-    "lib/**/*.js",
+    "lib",
     "index.js",
     "lit-view.js"
   ],
