@@ -1,8 +1,9 @@
 import { TemplateResult } from 'lit-html'
 import createRegistry from './factory'
+import ViewTemplateRegistry from './TemplateRegistry'
 
 export default {
-    default: createRegistry(),
+    default: createRegistry() as ViewTemplateRegistry,
     byName: createRegistry,
 }
 
