@@ -7,7 +7,7 @@ Building late-bound User Interface with `lit-html` without actually creating or 
 ### 1. Install
 
 ``` bash
-yarn add @lit-any/views
+yarn add @lit-any/views lit-html lit-element
 ```
 
 ### 2. Set up how to render your content
