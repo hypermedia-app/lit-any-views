@@ -14,7 +14,7 @@ export interface Criteria {
 
 export type RenderFunc = (
     value: unknown,
-    next: (value: unknown, scope: string) => TemplateResult,
+    next: (value: unknown, scope?: string) => TemplateResult,
     scope: string,
     params: { [key: string]: unknown }
 ) => TemplateResult
