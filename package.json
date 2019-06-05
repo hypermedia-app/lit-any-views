@@ -32,7 +32,7 @@
     "posttest": "cat ./coverage/coverage-final.json | remap-istanbul -o ./coverage/lcov.info -t lcovonly"
   },
   "dependencies": {
-    "@lit-any/core": "^0.9.0-a1"
+    "@lit-any/core": "^0.9.0-a3"
   },
   "peerDependencies": {
     "lit-element": ">= 2",
