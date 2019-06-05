@@ -1,6 +1,6 @@
 {
   "name": "@lit-any/views",
-  "version": "0.9.0-a2",
+  "version": "0.9.0-a3",
   "main": "index.js",
   "files": [
     "*.d.ts",
