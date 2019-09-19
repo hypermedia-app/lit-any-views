@@ -2,10 +2,10 @@ import { expect } from '@open-wc/testing'
 import ViewTemplateSelectorBuilder from '../../lib/TemplateSelectorBuilder'
 
 describe('ViewTemplateSelectorBuilder', () => {
-  let builder
+  let builder: any
 
   beforeEach(() => {
-    builder = new ViewTemplateSelectorBuilder({})
+    builder = new ViewTemplateSelectorBuilder({} as any)
   })
 
   describe('adding value matcher function', () => {
@@ -14,7 +14,7 @@ describe('ViewTemplateSelectorBuilder', () => {
       const valueToMatch = 'test val'
 
       // when
-      builder.valueMatches(v => v === 'test val')
+      builder.valueMatches((v: string) => v === 'test val')
 
       // then
       const matcher = builder._selector._matchers[0]
@@ -32,7 +32,7 @@ describe('ViewTemplateSelectorBuilder', () => {
       const valueToMatch = 'the scope'
 
       // when
-      builder.scopeMatches(s => s === 'the scope')
+      builder.scopeMatches((s: string) => s === 'the scope')
 
       // then
       const matcher = builder._selector._matchers[0]

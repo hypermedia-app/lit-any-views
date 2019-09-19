@@ -1,9 +1,10 @@
 import { expect } from '@open-wc/testing'
 import ViewTemplates from '../../lib/index'
+import ViewTemplateSelectorBuilder from '../../src/lib/TemplateSelectorBuilder'
 
 describe('ViewTemplates', () => {
   describe('when builder is created', () => {
-    let builder
+    let builder: ViewTemplateSelectorBuilder
 
     beforeEach(() => {
       builder = ViewTemplates.default.when

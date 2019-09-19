@@ -7,6 +7,7 @@
   ],
   "root": true,
   "rules": {
+    "import/named": "warn",
     "import/no-unresolved": "warn",
     "import/extensions": "off",
     "space-before-function-paren": [
@@ -20,7 +21,15 @@
       "always-multiline"
     ],
     "@typescript-eslint/no-var-requires": "warn",
-    "@typescript-eslint/indent": "off"
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none"
+        }
+      }
+    ]
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

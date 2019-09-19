@@ -1,14 +1,15 @@
 import { expect, fixture } from '@open-wc/testing'
 import { html } from 'lit-html'
 import '../../lib/lit-view'
-import * as sinon from 'sinon'
+import sinon from 'sinon'
 import ViewTemplates from '../../lib'
+import LitView from '../../src/lib/lit-view'
 
 describe('lit-view', () => {
-  let litView
-  let getTemplate
+  let litView: LitView
+  let getTemplate: any
 
-  ViewTemplates.byName = () => ({ getTemplate })
+  ViewTemplates.byName = () => ({ getTemplate } as any)
 
   describe('with attributes', () => {
     beforeEach(async () => {
@@ -41,13 +42,13 @@ describe('lit-view', () => {
     })
 
     it('should render nothing when object is undefined', () => {
-      expect(litView.shadowRoot.querySelectorAll('*').length).to.equal(0)
+      expect(litView.shadowRoot!.querySelectorAll('*').length).to.equal(0)
     })
 
     it('should render found template', async () => {
       // given
       getTemplate.returns({
-        render: object =>
+        render: (object: any) =>
           html`
             <span>${object.value}</span>
           `,
@@ -84,7 +85,7 @@ describe('lit-view', () => {
     it('should render pass scope to template', async () => {
       // given
       getTemplate.returns({
-        render: (_1, _2, scope) =>
+        render: (_1: never, _2: never, scope: string) =>
           html`
             <span>${scope}</span>
           `,
@@ -113,7 +114,7 @@ describe('lit-view', () => {
     it('should use render parameter', async () => {
       // given
       getTemplate.returns({
-        render: (object, render) => {
+        render: (object: any, render: Function) => {
           if (object.child) {
             return html`
               <p class="${object.clazz}">${render(object.child)}</p>
@@ -148,7 +149,7 @@ describe('lit-view', () => {
     it('should select template for selected value', async () => {
       // given
       getTemplate.returns({
-        render: (v, render) => {
+        render: (v: any, render: Function) => {
           if (v.child) {
             return html`
               ${render(v.child)}
@@ -172,7 +173,7 @@ describe('lit-view', () => {
     it('should allow changing scope', async () => {
       // given
       getTemplate.returns({
-        render: (v, render, scope) => {
+        render: (v: any, render: Function, scope: string) => {
           if (v.child) {
             if (v.scope) {
               return html`
@@ -207,7 +208,7 @@ describe('lit-view', () => {
     it('should provide an empty params object fallback', async () => {
       // given
       getTemplate.returns({
-        render: (object, render, scope, params) => {
+        render: (object: any, render: Function, scope: string, params: any) => {
           if (object.child) {
             return html`
               <p>${render(object.child)}</p>
@@ -244,11 +245,11 @@ describe('lit-view', () => {
   })
 
   describe('when value is set before inserting to DOM', () => {
-    let manualView
+    let manualView: LitView
 
     beforeEach(() => {
       getTemplate = sinon.stub()
-      manualView = document.createElement('lit-view')
+      manualView = document.createElement('lit-view') as LitView
       manualView.value = {
         inserted: 'manually',
       }
@@ -257,7 +258,7 @@ describe('lit-view', () => {
     it('should render correctly', async () => {
       // given
       getTemplate.returns({
-        render: object =>
+        render: (object: any) =>
           html`
             <span>${object.inserted}</span>
           `,
@@ -284,7 +285,7 @@ describe('lit-view', () => {
     it('makes it accessible to child render when used together with scope', async () => {
       // given
       getTemplate.returns({
-        render: (object, render, scope, params) => {
+        render: (object: any, render: Function, scope: string, params: any) => {
           if (params.sameToUpper) {
             return html`
               '${scope}' ${object.text.toUpperCase()}
@@ -309,7 +310,7 @@ describe('lit-view', () => {
     it('makes it accessible to child render when used without scope', async () => {
       // given
       getTemplate.returns({
-        render: (object, render, scope, params) => {
+        render: (object: any, render: Function, scope: string, params: any) => {
           if (params.sameToUpper) {
             return html`
               '${scope}' ${object.text.toUpperCase()}

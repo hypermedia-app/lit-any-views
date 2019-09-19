@@ -2,7 +2,7 @@ import { expect } from '@open-wc/testing'
 import ViewTemplateSelector from '../../lib/TemplateSelector'
 
 describe('ViewTemplateSelector', () => {
-  let selector
+  let selector: ViewTemplateSelector<unknown>
 
   beforeEach(() => {
     selector = new ViewTemplateSelector()
@@ -11,7 +11,7 @@ describe('ViewTemplateSelector', () => {
   describe('shouldMatch', () => {
     it('returns false if value is null', () => {
       // given
-      const criteria = { value: null }
+      const criteria = { value: null, scope: '' }
 
       // when
       const shouldMatch = selector.shouldMatch(criteria)
@@ -22,7 +22,7 @@ describe('ViewTemplateSelector', () => {
 
     it('returns false if value is undefined', () => {
       // given
-      const criteria = {}
+      const criteria = { scope: '' }
 
       // when
       const shouldMatch = selector.shouldMatch(criteria)
@@ -35,7 +35,7 @@ describe('ViewTemplateSelector', () => {
   describe('matches', () => {
     it('should not match when value is null', () => {
       // given
-      const criteria = { value: null }
+      const criteria = { value: null, scope: '' }
 
       // when
       const matches = selector.matches(criteria)
@@ -46,7 +46,7 @@ describe('ViewTemplateSelector', () => {
 
     it('should not match when value is undefined', () => {
       // given
-      const criteria = {}
+      const criteria = { scope: '' }
 
       // when
       const matches = selector.matches(criteria)
