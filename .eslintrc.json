@@ -1,13 +1,14 @@
 {
   "extends": [
     "@open-wc/eslint-config",
+    "eslint-config-prettier",
     "plugin:@typescript-eslint/recommended",
     "standard"
   ],
   "root": true,
   "rules": {
-    "indent": "off",
     "import/no-unresolved": "warn",
+    "import/extensions": "off",
     "space-before-function-paren": [
       "error",
       {
@@ -18,8 +19,8 @@
       "error",
       "always-multiline"
     ],
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "import/named": "off"
+    "@typescript-eslint/no-var-requires": "warn",
+    "@typescript-eslint/indent": "off"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -28,9 +29,19 @@
   },
   "plugins": [
     "@typescript-eslint/eslint-plugin",
-    "lit"
+    "lit",
+    "import"
   ],
   "env": {
     "browser": true
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ]
 }
