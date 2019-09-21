@@ -1,8 +1,8 @@
 import { expect, fixture } from '@open-wc/testing'
 import { html } from 'lit-html'
-import '../../lib/lit-view'
+import '../../src/lib/lit-view.ts'
 import sinon from 'sinon'
-import ViewTemplates from '../../lib'
+import ViewTemplates from '../../src/lib'
 import LitView from '../../src/lib/lit-view'
 
 describe('lit-view', () => {

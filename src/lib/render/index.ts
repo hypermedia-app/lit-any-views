@@ -37,7 +37,7 @@ function recurseTemplates(
         ${template.render(value, nextLevel, scope, params || {})}
       `
     } else if (ignoreMissing) {
-      templateResult = ('' as unknown) as TemplateResult
+      templateResult = html``
     } else {
       templateResult = html`
         Template not found

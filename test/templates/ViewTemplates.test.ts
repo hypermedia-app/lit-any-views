@@ -1,5 +1,5 @@
 import { expect } from '@open-wc/testing'
-import ViewTemplates from '../../lib/index'
+import ViewTemplates from '../../src/lib/index'
 import ViewTemplateSelectorBuilder from '../../src/lib/TemplateSelectorBuilder'
 
 describe('ViewTemplates', () => {

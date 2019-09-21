@@ -1,5 +1,5 @@
 import { expect } from '@open-wc/testing'
-import ViewTemplateSelector from '../../lib/TemplateSelector'
+import ViewTemplateSelector from '../../src/lib/TemplateSelector'
 
 describe('ViewTemplateSelector', () => {
   let selector: ViewTemplateSelector<unknown>

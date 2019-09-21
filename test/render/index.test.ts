@@ -1,11 +1,10 @@
-/* global describe, it, beforeEach */
 import { expect } from '@open-wc/testing'
-import { html, render as litRender } from 'lit-html'
-import * as sinon from 'sinon'
-import render from '../../lib/render'
+import { html, render as litRender, TemplateResult } from 'lit-html'
+import sinon from 'sinon'
+import render from '../../src/lib/render'
 
 describe('render view', () => {
-  let registry
+  let registry: any
 
   beforeEach(() => {
     registry = {
@@ -16,7 +15,7 @@ describe('render view', () => {
   it('should create TemplateResult for found template', () => {
     // given
     registry.getTemplate.returns({
-      render: object =>
+      render: (object: any) =>
         html`
           <span>${object.value}</span>
         `,
@@ -31,13 +30,27 @@ describe('render view', () => {
 
     // then
     const span = container.querySelector('span')
-    expect(span.textContent).to.equal('test')
+    expect(span!.textContent).to.equal('test')
+  })
+
+  it('should create TemplateResult for template not found', () => {
+    // given
+    registry.getTemplate.returns(null)
+    const value = {
+      value: 'test',
+    }
+
+    // when
+    const result = render(registry, { value }, false)
+
+    // then
+    expect(result).to.be.instanceOf(TemplateResult)
   })
 
   it('should pass down scope parameter', () => {
     // given
     registry.getTemplate.returns({
-      render: (object, _, scope) =>
+      render: (object: unknown, _: Function, scope: string) =>
         html`
           <span>${scope}</span>
         `,
