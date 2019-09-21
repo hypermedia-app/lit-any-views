@@ -64,6 +64,6 @@ describe('render view', () => {
     litRender(render(registry, { value, scope: 'some scope' }, false), container)
 
     // then
-    expect(container.textContent).to.equal('some scope')
+    expect(container.textContent!.trim()).to.equal('some scope')
   })
 })
