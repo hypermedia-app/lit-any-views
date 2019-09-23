@@ -23,4 +23,4 @@ deploy:
   on:
     tags: true
     repo: hypermedia-app/lit-any-views
-    skip_cleanup: false
+  skip_cleanup: true
