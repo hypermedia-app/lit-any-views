@@ -3,18 +3,18 @@ import createRegistry from './factory'
 import ViewTemplateRegistry from './TemplateRegistry'
 
 export default {
-    default: createRegistry() as ViewTemplateRegistry,
-    byName: createRegistry,
+  default: createRegistry() as ViewTemplateRegistry,
+  byName: createRegistry,
 }
 
 export interface Criteria {
-    scope: string;
-    value?: unknown | null;
+  scope: string
+  value?: unknown | null
 }
 
 export type RenderFunc = (
-    value: unknown,
-    next: (value: unknown, scope?: string, params?: { [key: string]: unknown }) => TemplateResult,
-    scope: string,
-    params: { [key: string]: unknown }
+  value: unknown,
+  next: (value: unknown, scope?: string, params?: { [key: string]: unknown }) => TemplateResult,
+  scope: string,
+  params: { [key: string]: unknown },
 ) => TemplateResult | string

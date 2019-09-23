@@ -11,11 +11,10 @@
     "declaration": true,
     "sourceMap": true,
     "noImplicitAny": true,
+    "outDir": ".",
     "moduleResolution": "node",
-    "outDir": "."
+    "esModuleInterop": true
   },
-  "include": [
-    "src/**/*.ts"
-  ],
+  "include": ["src/**/*"],
   "exclude": []
 }

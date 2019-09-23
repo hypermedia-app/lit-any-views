@@ -51,6 +51,7 @@
 
 ```html
 nested
+
 ```
 
 ####   `should provide an empty params object fallback`
@@ -61,6 +62,7 @@ nested
     {}
   </span>
 </p>
+
 ```
 
 ## `when value is set before inserting to DOM`
@@ -81,16 +83,18 @@ nested
 ####   `makes it accessible to child render when used together with scope`
 
 ```html
-a
-'bar' A
+a 
+        
+              'bar' A
 
 ```
 
 ####   `makes it accessible to child render when used without scope`
 
 ```html
-a
-'foo' A
+a 
+        
+              'foo' A
 
 ```
 
