@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.5](https://github.com/hypermedia-app/lit-any-views/compare/v0.9.4...v0.9.5) (2019-11-01)
+
+
+### Bug Fixes
+
+* relax typing of params parameter ([d672807](https://github.com/hypermedia-app/lit-any-views/commit/d672807))
+
 ### [0.9.4](https://github.com/hypermedia-app/lit-any-views/compare/v0.9.3...v0.9.4) (2019-09-25)
 
 
